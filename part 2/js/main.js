@@ -22,7 +22,12 @@ new Vue({
     },
     methods: {
         saveData() {
-            alert("Город: " + this.selectedCity + "\nЦех: " + this.selectedFactory + "\nСотрудник: " + this.selectedWorker + "\nБригада: " + this.selectedTeam);
+            // Сохраняем все в куки
+            document.cookie = `city=${this.selectedCity};`;
+            document.cookie = `factory=${this.selectedFactory};`;
+            document.cookie = `worker=${this.selectedWorker};`;
+            document.cookie = `team=${this.selectedTeam};`;
+            alert("Данные сохранены в куки.");
         }
     }
 });
