@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Vue.js Форма</h1>
+        <div>
+            <label>Город:</label>
+            <select v-model="selectedCity">
+                <option value="Не выбрано">Не выбрано</option>
+                <option v-for="city in cities" :value="city">{{ city }}</option>
+            </select>
+        </div>
+        <div>
+            <label>Цех:</label>
+            <select v-model="selectedFactory">
+                <option value="Не выбрано">Не выбрано</option>
+                <option v-for="factory in factories[selectedCity]" :value="factory">{{ factory }}</option>
+            </select>
+        </div>
+        <div>
+            <label>Сотрудник:</label>
+            <select v-model="selectedWorker">
+                <option value="Не выбрано">Не выбрано</option>
+                <option v-for="worker in workers[selectedCity]" :value="worker">{{ worker }}</option>
+            </select>
+        </div>
+        <div>
+            <label>Бригада:</label>
+            <select v-model="selectedTeam">
+                <option value="Не выбрано">Не выбрано</option>
+                <option>Первая(с 8 до 20:00)</option>
+                <option>Вторая(с 20:00 до 8:00)</option>
+            </select>
+        </div>
+        <button @click="saveData">Сохранить</button>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
